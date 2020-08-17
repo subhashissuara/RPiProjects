@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO 
-from time import sleep
+import time
 
 GPIO.setmode(GPIO.BOARD) # Use board pin numbering
 GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and set initial value to low (off)
@@ -7,8 +7,8 @@ GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW) # Set pin 8 to be an output pin and se
 try:
     while True:
         GPIO.output(8, GPIO.HIGH) # Turn on
-        sleep(1)
+        time.sleep(1)
         GPIO.output(8, GPIO.LOW) # Turn off
-        sleep(1)
+        time.sleep(1)
 except KeyboardInterrupt:
     GPIO.cleanup()
